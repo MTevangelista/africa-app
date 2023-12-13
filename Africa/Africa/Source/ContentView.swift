@@ -15,10 +15,12 @@ struct ContentView: View {
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 
                 ForEach(animals) { animal in
-                    AnimalListItemView(animal: animal)
-                        .listRowBackground(Color.clear)
-                        .listRowSeparator(.hidden)
-                }
+                    NavigationLink(destination: AnimalDetailView(animal: animal)) {
+                        AnimalListItemView(animal: animal)
+                    } //: NavigationLink
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+                } //: ForEach
             } //: LIST
             .navigationTitle("Africa")
             .navigationBarTitleDisplayMode(.large)
